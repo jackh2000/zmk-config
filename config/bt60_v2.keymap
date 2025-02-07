@@ -22,7 +22,6 @@
     zmk,physical-layout = &layout_60_hhkb;
   #elif defined(TSANGAN_SPLIT_MODS)
     zmk,physical-layout = &layout_60_tsangan_split_mods;
-    // semicolon
   #else
   #error "Layout not defined, please define a layout by uncommenting the appropriate line in bt60_v2.keymap"
   #endif
@@ -200,11 +199,13 @@
         // | BT_PRV | BT_NXT |   ALT  |             SPACE                |  ALT   | RESET |  BT_CLR |
         // ------------------------------------------------------------------------------------------
         bindings = <
-        &kp GRAVE &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp  F8   &kp  F9 &kp  F10  &kp F11 &kp F12   &trans &trans
-        &studio_unlock &trans &trans &trans &rgb_ug RGB_HUI &rgb_ug RGB_HUD &trans &trans &kp INS &trans &kp PSCRN &kp SLCK &kp PAUSE_BREAK &rgb_ug RGB_TOG
-        &trans    &trans &trans &trans &rgb_ug RGB_BRI &rgb_ug RGB_BRD &trans &trans &trans &trans &kp HOME  &kp PG_UP   &bootloader
-        &trans   &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE &bl BL_INC &bl BL_DEC &trans &trans &trans &kp END &kp PG_DN  &bl BL_TOG &trans
-        &bt BT_PRV &bt BT_NXT  &trans              &trans                            &trans   &sys_reset  &bt BT_CLR
+          &kp GRAVE &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp  F8   &kp  F9 &kp  F10  &kp F11 &kp F12   &trans &trans
+          &studio_unlock &trans &trans &trans &rgb_ug RGB_HUI &rgb_ug RGB_HUD &trans &trans &kp INS &trans &kp PSCRN &kp SLCK &kp PAUSE_BREAK &rgb_ug RGB_TOG
+          &trans    &trans &trans &trans &rgb_ug RGB_BRI &rgb_ug RGB_BRD &trans &trans &trans &trans &kp HOME  &kp PG_UP   &bootloader
+          &trans   &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE &bl BL_INC &bl BL_DEC &trans &trans &trans &kp END &kp PG_DN  &bl BL_TOG &trans
+          &bt BT_PRV &bt BT_NXT  &trans              &trans                            &trans   &sys_reset  &bt BT_CLR
+        >;
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
     #else
     #error "Layout not defined, please define a layout by uncommenting the appropriate line in bt60_v2.keymap"
