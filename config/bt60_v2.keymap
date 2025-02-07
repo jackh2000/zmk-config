@@ -21,7 +21,8 @@
   #elif defined(HHKB)
     zmk,physical-layout = &layout_60_hhkb;
   #elif defined(TSANGAN_SPLIT_MODS)
-    zmk,physical-layout = &layout_60_tsangan_split_mods
+    zmk,physical-layout = &layout_60_tsangan_split_mods;
+    // semicolon
   #else
   #error "Layout not defined, please define a layout by uncommenting the appropriate line in bt60_v2.keymap"
   #endif
@@ -174,7 +175,7 @@
     };
     #elif defined(TSANGAN_SPLIT_MODS)
     default_layer {
-        // ------------------------------------------------------------------------------------------
+        // ---------------------------------------------------------------------------  ---------------
         // | ESC |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  -  |  =  |BSPC |DEL |
         // | TAB   |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |  [  |  ]  |   \    |
         // | CAPS   |  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  ;  |  '  |    ENTER    |
