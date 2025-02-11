@@ -12,7 +12,7 @@
     compatible = "polarityworks,bt60_v2";
 
     chosen {
-        zmk,physical-layout 
+        zmk,physical-layout = &layout_60_tsangan_split_mods;
     };
 
     tsangan_split_mods_transform: keymap_transform_4 {
