@@ -5,10 +5,10 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/backlight.h>
 
-//#define ANSI
-//#define ISO
-//#define ALL_1U
-//#define HHKB
+#define ANSI
+#define ISO
+#define ALL_1U
+#define HHKB
 #define TSANGAN_SPLIT_MODS
 
 / {
