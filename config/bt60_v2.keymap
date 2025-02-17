@@ -12,20 +12,31 @@
 #define TSANGAN_SPLIT_MODS
 
 / {
+  behaviors {
+    mtq: mod_tap_with_quick_tap {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      flavor = "hold-preferred"; // triggers hold when tapping-term expires or another key is pressed
+      tapping-term-ms = <200>; // delay before hold key is triggered
+      quick-tap-ms = <200>; // if press tap-hold key w/in 200ms of initial press, wil always trigger tap (ie can hold down and it won't activate the hold key)
+      bindings <&kp>, <&kp>;
+    };
+  };
+
   chosen {
-  #ifdef ANSI
-    zmk,physical-layout = &layout_60_ansi;
-  #elif defined(ISO)
-    zmk,physical-layout = &layout_60_iso;
-  #elif defined(ALL_1U)
-    zmk,physical-layout = &layout_60_all1u;
-  #elif defined(HHKB)
-    zmk,physical-layout = &layout_60_hhkb;
-  #elif defined(TSANGAN_SPLIT_MODS)
-    zmk,physical-layout = &layout_60_tsangan_split_mods;
-  #else
-  #error "Layout not defined, please define a layout by uncommenting the appropriate line in bt60_v2.keymap"
-  #endif
+    #ifdef ANSI
+      zmk,physical-layout = &layout_60_ansi;
+    #elif defined(ISO)
+      zmk,physical-layout = &layout_60_iso;
+    #elif defined(ALL_1U)
+      zmk,physical-layout = &layout_60_all1u;
+    #elif defined(HHKB)
+      zmk,physical-layout = &layout_60_hhkb;
+    #elif defined(TSANGAN_SPLIT_MODS)
+      zmk,physical-layout = &layout_60_tsangan_split_mods;
+    #else
+    #error "Layout not defined, please define a layout by uncommenting the appropriate line in bt60_v2.keymap"
+    #endif
   };
 
   keymap {
@@ -186,8 +197,8 @@
         &kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp  N8   &kp  N9 &kp  N0  &kp MINUS &kp EQUAL &kp BSPC &kp DEL
         &kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp  I    &kp  O  &kp  P   &kp LBKT &kp RBKT   &kp BSLH
         &kp CAPS  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp  K    &kp  L  &kp SEMI &kp SQT            &kp RET
-        &kp LSHFT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH      &mt RSHFT UP       &mo 1
-        &kp LCTRL &kp LGUI &kp LALT               &kp SPACE                          &mt RALT LEFT &mt RGUI DOWN &mt RCTRL RIGHT
+        &kp LSHFT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH      &mtq RSHFT UP       &mo 1
+        &kp LCTRL &kp LGUI &kp LALT               &kp SPACE                          &mtq RALT LEFT &mtq RGUI DOWN &mtq RCTRL RIGHT
       >;
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
