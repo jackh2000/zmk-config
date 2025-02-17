@@ -19,7 +19,7 @@
       flavor = "hold-preferred"; // triggers hold when tapping-term expires or another key is pressed
       tapping-term-ms = <200>; // delay before hold key is triggered
       quick-tap-ms = <200>; // if press tap-hold key w/in 200ms of initial press, wil always trigger tap (ie can hold down and it won't activate the hold key)
-      bindings <&kp>, <&kp>;
+      bindings = <&kp>, <&kp>;
     };
   };
 
